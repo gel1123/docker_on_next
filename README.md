@@ -39,6 +39,19 @@ volumes ./app:/app とすることで、コンテナ内外のディレクトリ�
 
 この状態ならfrontコンテナ立ち上げ時に自動で yarn dev が成功し、すぐに localhost:3000 での動作確認が可能となる。
 
+## コンテナに入った初回でやるべきこと
+`docker-compose run --rm front sh` で frontコンテナに入ったとき、
+最初にいるディレクトリは、WORKDIR の設定に従い `/app/myapp` になっている。
+
+Nextアプリケーション（プロジェクト名：myapp）は、この myapp ディレクトリに中身を丸ごと展開したいので、
+下記の手順で階層を一つ上に移動した上で、create next-app する必要がある。
+
+```bash
+# /app/myappにいる状態から下記を実行
+cd ../
+yarn create next-app --typescript
+```
+
 ## 余談
 
 なお、例えば frontコンテナ内に `docker-compose run --rm front sh` で入った上で、

@@ -38,3 +38,14 @@ frontコンテナ立ち上げ時の yarn dev に失敗してしまっていた�
 volumes ./app:/app とすることで、コンテナ内外のディレクトリ階層を調整した。
 
 この状態ならfrontコンテナ立ち上げ時に自動で yarn dev が成功し、すぐに localhost:3000 での動作確認が可能となる。
+
+## 余談
+
+なお、例えば frontコンテナ内に `docker-compose run --rm front sh` で入った上で、
+自分自身で `yarn dev` したとしても、コンテナ外からアクセスすることはできない。
+これは、上記コマンドでは `docker-compose up -d` のように docker-compose.yml の port の設定を読んでくれないことが原因である。
+
+参考：
+https://bake0937.hatenablog.com/entry/2020/08/31/205125
+
+

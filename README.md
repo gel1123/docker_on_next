@@ -28,7 +28,7 @@ services:
     command: yarn dev
 ```
 
-元記事の手順だと、(環境によっては) コンテナ外から見て `./app/myapp/myapp` に Next.jsアプリケーションが構築されてしまう。
+元記事の手順だと、 **コンテナ外から見て** `./app/myapp/myapp` に Next.jsアプリケーションが構築されてしまう。
 （末尾のmyappは create next app 時のプロジェクト名）
 
 そのため WORKDIR である コンテナ内の `/app`直下 には Next.jsアプリケーションが存在せず、

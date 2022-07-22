@@ -33,6 +33,7 @@ services:
 
 そのため WORKDIR である コンテナ内の `/app`直下 には Next.jsアプリケーションが存在せず、
 frontコンテナ立ち上げ時の yarn dev に失敗してしまっていた。
+（この時 **コンテナ内から見て** Next.jsアプリケーションがあるのは `/app/myapp` だが、`yarn dev` は `/app` で実行されてしまっていた）
 
 そのため、WORKDIR を /app/myapp に変更し、
 volumes ./app:/app とすることで、コンテナ内外のディレクトリ階層を調整した。

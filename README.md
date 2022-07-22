@@ -49,7 +49,7 @@ Nextアプリケーション（プロジェクト名：myapp）は、この myap
 ```bash
 # /app/myappにいる状態から下記を実行
 cd ../
-yarn create next-app --typescript
+yarn create next-app --typescript # プロジェクト名は myapp で入力
 ```
 
 ## 余談
